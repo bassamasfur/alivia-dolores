@@ -139,138 +139,57 @@ class DolorDetailPage extends StatelessWidget {
           elevation: 0,
           centerTitle: true,
         ),
-        body: SingleChildScrollView(
-          padding: const EdgeInsets.all(16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              // Qué comer - Sección positiva
-              _buildCard(
-                backgroundColor: const Color(0xFFF1F8F4), // Verde muy suave
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    _buildSectionHeader(
-                      '✅',
-                      'Come más',
-                      const Color(0xFF4CAF50),
-                    ),
-                    _buildFoodList(dolor.comerMas, true),
-                  ],
-                ),
-              ),
-
-              // Qué evitar - Sección negativa
-              _buildCard(
-                backgroundColor: const Color(0xFFFFF5F5), // Rojo muy suave
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    _buildSectionHeader('❌', 'Evita', const Color(0xFFEF5350)),
-                    _buildFoodList(dolor.evitar, false),
-                  ],
-                ),
-              ),
-
-              // Por qué funciona - Explicación científica
-              _buildCard(
-                backgroundColor: const Color(0xFFF5F3FF), // Morado muy suave
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    _buildSectionHeader(
-                      '💡',
-                      '¿Por qué funciona?',
-                      const Color(0xFF6D5BFF),
-                    ),
-                    Text(
-                      dolor.porQue,
-                      style: const TextStyle(
-                        fontFamily: 'Montserrat',
-                        fontSize: 15,
-                        color: Color(0xFF424242),
-                        height: 1.6,
-                        fontWeight: FontWeight.w500,
+        body: SafeArea(
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.fromLTRB(16, 16, 16, 24),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // Qué comer - Sección positiva
+                _buildCard(
+                  backgroundColor: const Color(0xFFF1F8F4), // Verde muy suave
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      _buildSectionHeader(
+                        '✅',
+                        'Come más',
+                        const Color(0xFF4CAF50),
                       ),
-                    ),
-                  ],
-                ),
-              ),
-
-              // Receta rápida - Destacada
-              Container(
-                margin: const EdgeInsets.only(bottom: 16),
-                padding: const EdgeInsets.all(20),
-                decoration: BoxDecoration(
-                  gradient: const LinearGradient(
-                    colors: [Color(0xFF6D5BFF), Color(0xFF46C2CB)],
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
+                      _buildFoodList(dolor.comerMas, true),
+                    ],
                   ),
-                  borderRadius: BorderRadius.circular(20),
-                  boxShadow: [
-                    BoxShadow(
-                      color: const Color(0xFF6D5BFF).withOpacity(0.3),
-                      blurRadius: 15,
-                      offset: const Offset(0, 5),
-                    ),
-                  ],
                 ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      children: [
-                        Container(
-                          padding: const EdgeInsets.all(10),
-                          decoration: BoxDecoration(
-                            color: Colors.white.withOpacity(0.25),
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                          child: const Icon(
-                            Icons.restaurant_menu,
-                            color: Colors.white,
-                            size: 26,
-                          ),
-                        ),
-                        const SizedBox(width: 12),
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              const Text(
-                                'Receta rápida (5 min)',
-                                style: TextStyle(
-                                  fontFamily: 'Montserrat',
-                                  fontSize: 12,
-                                  color: Colors.white70,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                              ),
-                              const SizedBox(height: 4),
-                              Text(
-                                dolor.recetaTitulo,
-                                style: const TextStyle(
-                                  fontFamily: 'Montserrat',
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 19,
-                                  color: Colors.white,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 16),
-                    Container(
-                      padding: const EdgeInsets.all(16),
-                      decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.95),
-                        borderRadius: BorderRadius.circular(12),
+
+                // Qué evitar - Sección negativa
+                _buildCard(
+                  backgroundColor: const Color(0xFFFFF5F5), // Rojo muy suave
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      _buildSectionHeader(
+                        '❌',
+                        'Evita',
+                        const Color(0xFFEF5350),
                       ),
-                      child: Text(
-                        dolor.recetaPasos,
+                      _buildFoodList(dolor.evitar, false),
+                    ],
+                  ),
+                ),
+
+                // Por qué funciona - Explicación científica
+                _buildCard(
+                  backgroundColor: const Color(0xFFF5F3FF), // Morado muy suave
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      _buildSectionHeader(
+                        '💡',
+                        '¿Por qué funciona?',
+                        const Color(0xFF6D5BFF),
+                      ),
+                      Text(
+                        dolor.porQue,
                         style: const TextStyle(
                           fontFamily: 'Montserrat',
                           fontSize: 15,
@@ -279,74 +198,164 @@ class DolorDetailPage extends StatelessWidget {
                           fontWeight: FontWeight.w500,
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
 
-              // Alerta médica - Solo cuándo consultar
-              Container(
-                padding: const EdgeInsets.all(20),
-                decoration: BoxDecoration(
-                  color: const Color(0xFFFFF8E1),
-                  borderRadius: BorderRadius.circular(20),
-                  border: Border.all(color: const Color(0xFFFF9800), width: 2),
-                  boxShadow: [
-                    BoxShadow(
-                      color: const Color(0xFFFF9800).withOpacity(0.2),
-                      blurRadius: 10,
-                      offset: const Offset(0, 4),
+                // Receta rápida - Destacada
+                Container(
+                  margin: const EdgeInsets.only(bottom: 16),
+                  padding: const EdgeInsets.all(20),
+                  decoration: BoxDecoration(
+                    gradient: const LinearGradient(
+                      colors: [Color(0xFF6D5BFF), Color(0xFF46C2CB)],
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
                     ),
-                  ],
-                ),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                      padding: const EdgeInsets.all(8),
-                      decoration: BoxDecoration(
-                        color: const Color(0xFFFF9800).withOpacity(0.15),
-                        borderRadius: BorderRadius.circular(10),
+                    borderRadius: BorderRadius.circular(20),
+                    boxShadow: [
+                      BoxShadow(
+                        color: const Color(0xFF6D5BFF).withOpacity(0.3),
+                        blurRadius: 15,
+                        offset: const Offset(0, 5),
                       ),
-                      child: const Icon(
-                        Icons.local_hospital,
-                        color: Color(0xFFE65100),
-                        size: 28,
-                      ),
-                    ),
-                    const SizedBox(width: 14),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                    ],
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
                         children: [
-                          const Text(
-                            '⚠️ Cuándo consultar al médico',
-                            style: TextStyle(
-                              fontFamily: 'Montserrat',
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16,
-                              color: Color(0xFFE65100),
+                          Container(
+                            padding: const EdgeInsets.all(10),
+                            decoration: BoxDecoration(
+                              color: Colors.white.withOpacity(0.25),
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            child: const Icon(
+                              Icons.restaurant_menu,
+                              color: Colors.white,
+                              size: 26,
                             ),
                           ),
-                          const SizedBox(height: 8),
-                          Text(
-                            dolor.redFlag,
-                            style: const TextStyle(
-                              fontFamily: 'Montserrat',
-                              fontSize: 14,
-                              color: Color(0xFF5D4037),
-                              height: 1.6,
-                              fontWeight: FontWeight.w500,
+                          const SizedBox(width: 12),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Text(
+                                  'Receta rápida (5 min)',
+                                  style: TextStyle(
+                                    fontFamily: 'Montserrat',
+                                    fontSize: 12,
+                                    color: Colors.white70,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                                const SizedBox(height: 4),
+                                Text(
+                                  dolor.recetaTitulo,
+                                  style: const TextStyle(
+                                    fontFamily: 'Montserrat',
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 19,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                         ],
                       ),
-                    ),
-                  ],
+                      const SizedBox(height: 16),
+                      Container(
+                        padding: const EdgeInsets.all(16),
+                        decoration: BoxDecoration(
+                          color: Colors.white.withOpacity(0.95),
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        child: Text(
+                          dolor.recetaPasos,
+                          style: const TextStyle(
+                            fontFamily: 'Montserrat',
+                            fontSize: 15,
+                            color: Color(0xFF424242),
+                            height: 1.6,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-              const SizedBox(height: 20),
-            ],
+
+                // Alerta médica - Solo cuándo consultar
+                Container(
+                  padding: const EdgeInsets.all(20),
+                  decoration: BoxDecoration(
+                    color: const Color(0xFFFFF8E1),
+                    borderRadius: BorderRadius.circular(20),
+                    border: Border.all(
+                      color: const Color(0xFFFF9800),
+                      width: 2,
+                    ),
+                    boxShadow: [
+                      BoxShadow(
+                        color: const Color(0xFFFF9800).withOpacity(0.2),
+                        blurRadius: 10,
+                        offset: const Offset(0, 4),
+                      ),
+                    ],
+                  ),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.all(8),
+                        decoration: BoxDecoration(
+                          color: const Color(0xFFFF9800).withOpacity(0.15),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: const Icon(
+                          Icons.local_hospital,
+                          color: Color(0xFFE65100),
+                          size: 28,
+                        ),
+                      ),
+                      const SizedBox(width: 14),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Text(
+                              '⚠️ Cuándo consultar al médico',
+                              style: TextStyle(
+                                fontFamily: 'Montserrat',
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16,
+                                color: Color(0xFFE65100),
+                              ),
+                            ),
+                            const SizedBox(height: 8),
+                            Text(
+                              dolor.redFlag,
+                              style: const TextStyle(
+                                fontFamily: 'Montserrat',
+                                fontSize: 14,
+                                color: Color(0xFF5D4037),
+                                height: 1.6,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 80),
+              ],
+            ),
           ),
         ),
       ),

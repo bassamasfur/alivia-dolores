@@ -217,7 +217,7 @@ class _DolorListPageState extends State<DolorListPage> {
                   crossAxisCount: 3,
                   crossAxisSpacing: 12,
                   mainAxisSpacing: 12,
-                  childAspectRatio: 0.85,
+                  childAspectRatio: 0.80,
                 ),
                 itemCount: dolores.length,
                 itemBuilder: (context, index) {
@@ -249,8 +249,8 @@ class _DolorListPageState extends State<DolorListPage> {
                         children: [
                           // Emoji grande en contenedor de color
                           Container(
-                            width: 70,
-                            height: 70,
+                            width: 65,
+                            height: 65,
                             decoration: BoxDecoration(
                               color: _getColorForDolencia(dolor.id),
                               borderRadius: BorderRadius.circular(16),
@@ -258,20 +258,20 @@ class _DolorListPageState extends State<DolorListPage> {
                             child: Center(
                               child: Text(
                                 _getEmojiForDolencia(dolor.id),
-                                style: const TextStyle(fontSize: 38),
+                                style: const TextStyle(fontSize: 34),
                               ),
                             ),
                           ),
-                          const SizedBox(height: 10),
+                          const SizedBox(height: 8),
                           // Nombre de la dolencia
                           Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 8),
+                            padding: const EdgeInsets.symmetric(horizontal: 6),
                             child: Text(
                               dolor.nombre,
                               style: const TextStyle(
                                 fontFamily: 'Montserrat',
                                 fontWeight: FontWeight.w600,
-                                fontSize: 13,
+                                fontSize: 11.5,
                                 color: Color(0xFF2D2D2D),
                                 height: 1.2,
                               ),
