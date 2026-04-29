@@ -1,6 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    
     <application
-        android:label="alivia_dolores"
+        android:label="AliviaDol"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

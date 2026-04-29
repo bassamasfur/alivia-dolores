@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Iconos AliviaDol</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+        }
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #6D5BFF;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .preview-section {
+            display: flex;
+            gap: 30px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .preview-card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            flex: 1;
+            min-width: 250px;
+        }
+        .preview-card h3 {
+            color: #6D5BFF;
+            margin-bottom: 15px;
+        }
+        canvas {
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            margin: 10px 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        button {
+            background: linear-gradient(135deg, #6D5BFF, #46C2CB);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 5px;
+            transition: transform 0.2s;
+        }
+        button:hover {
+            transform: scale(1.05);
+        }
+        .instructions {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .success {
+            background: #4CAF50;
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+            text-align: center;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 Generador de Iconos AliviaDol</h1>
+        
+        <div class="instructions">
+            <h3>📝 Instrucciones:</h3>
+            <ol>
+                <li>Haz clic en "Descargar PNG" en cada icono</li>
+                <li>Guarda los archivos en <code>assets/icon/</code> con los nombres indicados</li>
+                <li>Ejecuta <code>flutter pub get</code> en la terminal</li>
+                <li>Ejecuta <code>dart run flutter_launcher_icons</code></li>
+                <li>Reconstruye el APK con <code>flutter build apk</code></li>
+            </ol>
+        </div>
+
+        <div class="preview-section">
+            <div class="preview-card">
+                <h3>Icono Principal</h3>
+                <canvas id="mainIcon" width="512" height="512"></canvas>
+                <br>
+                <button onclick="downloadIcon('mainIcon', 'app_icon.png')">📥 Descargar PNG</button>
+                <p><strong>Nombre:</strong> app_icon.png</p>
+            </div>
+
+            <div class="preview-card">
+                <h3>Icono Foreground (Adaptive)</h3>
+                <canvas id="foregroundIcon" width="512" height="512"></canvas>
+                <br>
+                <button onclick="downloadIcon('foregroundIcon', 'app_icon_foreground.png')">📥 Descargar PNG</button>
+                <p><strong>Nombre:</strong> app_icon_foreground.png</p>
+            </div>
+        </div>
+
+        <div id="success" class="success">
+            ✅ ¡Icono descargado! Guárdalo en assets/icon/
+        </div>
+    </div>
+
+    <script>
+        function drawMainIcon(ctx, size) {
+            // Fondo con gradiente
+            const gradient = ctx.createLinearGradient(0, 0, size, size);
+            gradient.addColorStop(0, '#6D5BFF');
+            gradient.addColorStop(1, '#46C2CB');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, size, size);
+
+            // Píldora - parte izquierda (blanca)
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.95)';
+            ctx.beginPath();
+            ctx.arc(size * 0.35, size * 0.4, size * 0.1, Math.PI / 2, -Math.PI / 2);
+            ctx.lineTo(size * 0.45, size * 0.3);
+            ctx.lineTo(size * 0.45, size * 0.7);
+            ctx.arc(size * 0.35, size * 0.6, size * 0.1, Math.PI / 2, -Math.PI / 2, true);
+            ctx.closePath();
+            ctx.fill();
+
+            // Píldora - parte derecha (rosa claro)
+            ctx.fillStyle = 'rgba(255, 230, 240, 0.9)';
+            ctx.beginPath();
+            ctx.arc(size * 0.65, size * 0.4, size * 0.1, -Math.PI / 2, Math.PI / 2);
+            ctx.lineTo(size * 0.45, size * 0.7);
+            ctx.lineTo(size * 0.45, size * 0.3);
+            ctx.arc(size * 0.65, size * 0.6, size * 0.1, -Math.PI / 2, Math.PI / 2, true);
+            ctx.closePath();
+            ctx.fill();
+
+            // Línea divisoria
+            ctx.strokeStyle = '#E0E0E0';
+            ctx.lineWidth = 3;
+            ctx.setLineDash([8, 4]);
+            ctx.beginPath();
+            ctx.moveTo(size * 0.45, size * 0.3);
+            ctx.lineTo(size * 0.45, size * 0.7);
+            ctx.stroke();
+            ctx.setLineDash([]);
+
+            // Corazón
+            drawHeart(ctx, size * 0.5, size * 0.5, size * 0.15);
+
+            // Letra A decorativa
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+            ctx.font = `bold ${size * 0.12}px Arial`;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('A', size * 0.5, size * 0.85);
+        }
+
+        function drawForegroundIcon(ctx, size) {
+            // Fondo transparente
+            ctx.clearRect(0, 0, size, size);
+
+            // Píldora - parte izquierda (blanca)
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.95)';
+            ctx.beginPath();
+            ctx.arc(size * 0.35, size * 0.4, size * 0.1, Math.PI / 2, -Math.PI / 2);
+            ctx.lineTo(size * 0.45, size * 0.3);
+            ctx.lineTo(size * 0.45, size * 0.7);
+            ctx.arc(size * 0.35, size * 0.6, size * 0.1, Math.PI / 2, -Math.PI / 2, true);
+            ctx.closePath();
+            ctx.fill();
+
+            // Píldora - parte derecha (rosa claro)
+            ctx.fillStyle = 'rgba(255, 230, 240, 0.95)';
+            ctx.beginPath();
+            ctx.arc(size * 0.65, size * 0.4, size * 0.1, -Math.PI / 2, Math.PI / 2);
+            ctx.lineTo(size * 0.45, size * 0.7);
+            ctx.lineTo(size * 0.45, size * 0.3);
+            ctx.arc(size * 0.65, size * 0.6, size * 0.1, -Math.PI / 2, Math.PI / 2, true);
+            ctx.closePath();
+            ctx.fill();
+
+            // Línea divisoria
+            ctx.strokeStyle = '#E0E0E0';
+            ctx.lineWidth = 3;
+            ctx.setLineDash([8, 4]);
+            ctx.beginPath();
+            ctx.moveTo(size * 0.45, size * 0.3);
+            ctx.lineTo(size * 0.45, size * 0.7);
+            ctx.stroke();
+            ctx.setLineDash([]);
+
+            // Corazón
+            drawHeart(ctx, size * 0.5, size * 0.5, size * 0.15);
+        }
+
+        function drawHeart(ctx, x, y, size) {
+            // Corazón
+            ctx.fillStyle = 'rgba(255, 91, 131, 0.95)';
+            ctx.beginPath();
+            ctx.moveTo(x, y - size * 0.3);
+            ctx.bezierCurveTo(x - size * 0.5, y - size * 0.8, x - size * 0.8, y - size * 0.3, x - size * 0.8, y);
+            ctx.bezierCurveTo(x - size * 0.8, y + size * 0.5, x, y + size * 0.9, x, y + size * 0.9);
+            ctx.bezierCurveTo(x, y + size * 0.9, x + size * 0.8, y + size * 0.5, x + size * 0.8, y);
+            ctx.bezierCurveTo(x + size * 0.8, y - size * 0.3, x + size * 0.5, y - size * 0.8, x, y - size * 0.3);
+            ctx.closePath();
+            ctx.fill();
+
+            // Cruz médica en el corazón
+            ctx.fillStyle = '#FFFFFF';
+            // Vertical
+            ctx.fillRect(x - size * 0.05, y - size * 0.22, size * 0.1, size * 0.44);
+            // Horizontal
+            ctx.fillRect(x - size * 0.22, y - size * 0.05, size * 0.44, size * 0.1);
+        }
+
+        function downloadIcon(canvasId, filename) {
+            const canvas = document.getElementById(canvasId);
+            const url = canvas.toDataURL('image/png');
+            const link = document.createElement('a');
+            link.download = filename;
+            link.href = url;
+            link.click();
+            
+            const success = document.getElementById('success');
+            success.style.display = 'block';
+            setTimeout(() => success.style.display = 'none', 3000);
+        }
+
+        // Inicializar iconos al cargar la página
+        window.onload = function() {
+            const mainCanvas = document.getElementById('mainIcon');
+            const foregroundCanvas = document.getElementById('foregroundIcon');
+            
+            const mainCtx = mainCanvas.getContext('2d');
+            const foregroundCtx = foregroundCanvas.getContext('2d');
+            
+            drawMainIcon(mainCtx, 512);
+            drawForegroundIcon(foregroundCtx, 512);
+        };
+    </script>
+</body>
+</html>

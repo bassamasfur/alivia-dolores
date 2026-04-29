@@ -1,0 +1,42 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+  <!-- Fondo con gradiente -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6D5BFF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#46C2CB;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Fondo redondeado -->
+  <rect width="1024" height="1024" rx="180" fill="url(#bgGradient)"/>
+  
+  <!-- Píldora/Cápsula -->
+  <g filter="url(#shadow)">
+    <!-- Parte izquierda de la píldora -->
+    <path d="M 350 300 Q 250 300 250 400 L 250 624 Q 250 724 350 724 L 450 724 L 450 300 Z" fill="#FFFFFF" opacity="0.95"/>
+    
+    <!-- Parte derecha de la píldora -->
+    <path d="M 450 300 L 674 300 Q 774 300 774 400 L 774 624 Q 774 724 674 724 L 450 724 Z" fill="#FFE6F0" opacity="0.9"/>
+    
+    <!-- Línea divisoria -->
+    <line x1="450" y1="300" x2="450" y2="724" stroke="#E0E0E0" stroke-width="3" stroke-dasharray="10,5"/>
+  </g>
+  
+  <!-- Corazón con cruz médica -->
+  <g transform="translate(512, 512)">
+    <!-- Corazón -->
+    <path d="M 0,-60 C -80,-120 -120,-60 -120,0 C -120,80 0,140 0,140 C 0,140 120,80 120,0 C 120,-60 80,-120 0,-60 Z" 
+          fill="#FF5B83" opacity="0.9"/>
+    
+    <!-- Cruz médica en el corazón -->
+    <rect x="-8" y="-35" width="16" height="70" rx="4" fill="#FFFFFF"/>
+    <rect x="-35" y="-8" width="70" height="16" rx="4" fill="#FFFFFF"/>
+  </g>
+  
+  <!-- Texto decorativo (opcional) -->
+  <text x="512" y="880" font-family="Arial, sans-serif" font-size="120" font-weight="bold" 
+        text-anchor="middle" fill="#FFFFFF" opacity="0.9">A</text>
+</svg>
