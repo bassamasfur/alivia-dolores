@@ -1,6 +1,7 @@
 class Dolor {
   final String id;
   final String nombre;
+  final String descripcion;
   final List<String> comerMas;
   final List<String> evitar;
   final String porQue;
@@ -11,6 +12,7 @@ class Dolor {
   Dolor({
     required this.id,
     required this.nombre,
+    required this.descripcion,
     required this.comerMas,
     required this.evitar,
     required this.porQue,
@@ -23,6 +25,7 @@ class Dolor {
     return Dolor(
       id: json['id'] ?? '',
       nombre: json['nombre'] ?? '',
+      descripcion: json['descripcion'] ?? '',
       comerMas: List<String>.from(json['comer_mas'] ?? []),
       evitar: List<String>.from(json['evitar'] ?? []),
       porQue: json['por_que'] ?? '',
