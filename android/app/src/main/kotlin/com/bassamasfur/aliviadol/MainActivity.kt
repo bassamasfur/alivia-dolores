@@ -1,4 +1,4 @@
-package com.example.alivia_dolores
+package com.bassamasfur.aliviadol
 
 import io.flutter.embedding.android.FlutterActivity
 
