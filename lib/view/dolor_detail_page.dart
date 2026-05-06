@@ -22,7 +22,7 @@ class _DolorDetailPageState extends State<DolorDetailPage> {
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.08),
+            color: Colors.black.withValues(alpha: 0.08),
             blurRadius: 15,
             offset: const Offset(0, 5),
           ),
@@ -37,7 +37,7 @@ class _DolorDetailPageState extends State<DolorDetailPage> {
       margin: const EdgeInsets.only(bottom: 16),
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
       decoration: BoxDecoration(
-        color: color.withOpacity(0.1),
+        color: color.withValues(alpha: 0.1),
         borderRadius: BorderRadius.circular(10),
       ),
       child: Row(
@@ -72,8 +72,8 @@ class _DolorDetailPageState extends State<DolorDetailPage> {
                 borderRadius: BorderRadius.circular(12),
                 border: Border.all(
                   color: isPositive
-                      ? const Color(0xFF4CAF50).withOpacity(0.3)
-                      : const Color(0xFFEF5350).withOpacity(0.3),
+                      ? const Color(0xFF4CAF50).withValues(alpha: 0.3)
+                      : const Color(0xFFEF5350).withValues(alpha: 0.3),
                   width: 1.5,
                 ),
                 boxShadow: [
@@ -82,7 +82,7 @@ class _DolorDetailPageState extends State<DolorDetailPage> {
                         (isPositive
                                 ? const Color(0xFF4CAF50)
                                 : const Color(0xFFEF5350))
-                            .withOpacity(0.08),
+                            .withValues(alpha: 0.08),
                     blurRadius: 4,
                     offset: const Offset(0, 2),
                   ),
@@ -294,7 +294,7 @@ class _DolorDetailPageState extends State<DolorDetailPage> {
                     borderRadius: BorderRadius.circular(20),
                     boxShadow: [
                       BoxShadow(
-                        color: const Color(0xFF6D5BFF).withOpacity(0.3),
+                        color: const Color(0xFF6D5BFF).withValues(alpha: 0.3),
                         blurRadius: 15,
                         offset: const Offset(0, 5),
                       ),
@@ -308,7 +308,7 @@ class _DolorDetailPageState extends State<DolorDetailPage> {
                           Container(
                             padding: const EdgeInsets.all(10),
                             decoration: BoxDecoration(
-                              color: Colors.white.withOpacity(0.25),
+                              color: Colors.white.withValues(alpha: 0.25),
                               borderRadius: BorderRadius.circular(12),
                             ),
                             child: const Icon(
@@ -350,7 +350,7 @@ class _DolorDetailPageState extends State<DolorDetailPage> {
                       Container(
                         padding: const EdgeInsets.all(16),
                         decoration: BoxDecoration(
-                          color: Colors.white.withOpacity(0.95),
+                          color: Colors.white.withValues(alpha: 0.95),
                           borderRadius: BorderRadius.circular(12),
                         ),
                         child: Text(
@@ -380,7 +380,7 @@ class _DolorDetailPageState extends State<DolorDetailPage> {
                     ),
                     boxShadow: [
                       BoxShadow(
-                        color: const Color(0xFFFF9800).withOpacity(0.2),
+                        color: const Color(0xFFFF9800).withValues(alpha: 0.2),
                         blurRadius: 10,
                         offset: const Offset(0, 4),
                       ),
@@ -392,7 +392,9 @@ class _DolorDetailPageState extends State<DolorDetailPage> {
                       Container(
                         padding: const EdgeInsets.all(8),
                         decoration: BoxDecoration(
-                          color: const Color(0xFFFF9800).withOpacity(0.15),
+                          color: const Color(
+                            0xFFFF9800,
+                          ).withValues(alpha: 0.15),
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: const Icon(
@@ -454,7 +456,9 @@ class _DolorDetailPageState extends State<DolorDetailPage> {
                           Container(
                             padding: const EdgeInsets.all(8),
                             decoration: BoxDecoration(
-                              color: const Color(0xFF6D5BFF).withOpacity(0.1),
+                              color: const Color(
+                                0xFF6D5BFF,
+                              ).withValues(alpha: 0.1),
                               borderRadius: BorderRadius.circular(8),
                             ),
                             child: const Icon(
@@ -502,7 +506,7 @@ class _DolorDetailPageState extends State<DolorDetailPage> {
                     ),
                     borderRadius: BorderRadius.circular(16),
                     border: Border.all(
-                      color: const Color(0xFF42A5F5).withOpacity(0.4),
+                      color: const Color(0xFF42A5F5).withValues(alpha: 0.4),
                       width: 1.5,
                     ),
                   ),
@@ -522,7 +526,7 @@ class _DolorDetailPageState extends State<DolorDetailPage> {
                               Container(
                                 padding: const EdgeInsets.all(8),
                                 decoration: BoxDecoration(
-                                  color: Colors.white.withOpacity(0.7),
+                                  color: Colors.white.withValues(alpha: 0.7),
                                   borderRadius: BorderRadius.circular(8),
                                 ),
                                 child: const Icon(
@@ -607,7 +611,7 @@ class _DolorDetailPageState extends State<DolorDetailPage> {
                               Container(
                                 padding: const EdgeInsets.all(12),
                                 decoration: BoxDecoration(
-                                  color: Colors.white.withOpacity(0.6),
+                                  color: Colors.white.withValues(alpha: 0.6),
                                   borderRadius: BorderRadius.circular(8),
                                 ),
                                 child: const Row(
@@ -653,7 +657,7 @@ class _DolorDetailPageState extends State<DolorDetailPage> {
                     ),
                     borderRadius: BorderRadius.circular(16),
                     border: Border.all(
-                      color: const Color(0xFF81C784).withOpacity(0.4),
+                      color: const Color(0xFF81C784).withValues(alpha: 0.4),
                       width: 1.5,
                     ),
                   ),
@@ -665,7 +669,7 @@ class _DolorDetailPageState extends State<DolorDetailPage> {
                           Container(
                             padding: const EdgeInsets.all(8),
                             decoration: BoxDecoration(
-                              color: Colors.white.withOpacity(0.7),
+                              color: Colors.white.withValues(alpha: 0.7),
                               borderRadius: BorderRadius.circular(8),
                             ),
                             child: const Icon(
@@ -751,10 +755,10 @@ class _DolorDetailPageState extends State<DolorDetailPage> {
     return Container(
       padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.7),
+        color: Colors.white.withValues(alpha: 0.7),
         borderRadius: BorderRadius.circular(12),
         border: Border.all(
-          color: const Color(0xFF90CAF9).withOpacity(0.5),
+          color: const Color(0xFF90CAF9).withValues(alpha: 0.5),
           width: 1,
         ),
       ),

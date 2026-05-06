@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
         ),
         scaffoldBackgroundColor: Colors.transparent,
         appBarTheme: AppBarTheme(
-          backgroundColor: Colors.white.withOpacity(0.85),
+          backgroundColor: Colors.white.withValues(alpha: 0.85),
           elevation: 8,
           centerTitle: true,
           titleTextStyle: const TextStyle(
