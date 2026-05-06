@@ -287,19 +287,13 @@ class _DolorListPageState extends State<DolorListPage> {
                     // Grid de dolencias
                     Padding(
                       padding: const EdgeInsets.all(16),
-                      child: GridView.builder(
-                        shrinkWrap: true,
-                        physics: const NeverScrollableScrollPhysics(),
-                        gridDelegate:
-                            const SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 3,
-                              crossAxisSpacing: 12,
-                              mainAxisSpacing: 12,
-                              childAspectRatio: 0.80,
-                            ),
-                        itemCount: dolores.length,
-                        itemBuilder: (context, index) {
-                          final dolor = dolores[index];
+                      child: Wrap(
+                        spacing: 12,
+                        runSpacing: 12,
+                        alignment: WrapAlignment.center,
+                        children: dolores.map((dolor) {
+                          final screenWidth = MediaQuery.of(context).size.width;
+                          final itemWidth = (screenWidth - 32 - 24) / 3;
                           return InkWell(
                             onTap: () {
                               Navigator.push(
@@ -311,6 +305,8 @@ class _DolorListPageState extends State<DolorListPage> {
                             },
                             borderRadius: BorderRadius.circular(20),
                             child: Container(
+                              width: itemWidth,
+                              height: itemWidth * 1.25,
                               decoration: BoxDecoration(
                                 color: Colors.white,
                                 borderRadius: BorderRadius.circular(20),
@@ -355,7 +351,7 @@ class _DolorListPageState extends State<DolorListPage> {
                                         color: Color(0xFF2D2D2D),
                                         height: 1.2,
                                       ),
-                                      textAlign: TextAlign.center,
+                                      textAlign: TextAlign.justify,
                                       maxLines: 3,
                                       overflow: TextOverflow.ellipsis,
                                     ),
@@ -364,7 +360,7 @@ class _DolorListPageState extends State<DolorListPage> {
                               ),
                             ),
                           );
-                        },
+                        }).toList(),
                       ),
                     ),
 
