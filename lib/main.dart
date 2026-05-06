@@ -1,7 +1,7 @@
 import "package:flutter/material.dart";
 import "package:provider/provider.dart";
 import 'controller/dolor_controller.dart';
-import 'view/dolor_list_page.dart';
+import 'view/category_list_page.dart';
 import 'view/splash_page.dart';
 
 void main() {
@@ -46,7 +46,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => const SplashPage(),
-        '/home': (context) => const DolorListPage(),
+        '/home': (context) => const CategoryListPage(),
       },
     );
   }

@@ -5,7 +5,9 @@ import 'dolor_detail_page.dart';
 import 'info_page.dart';
 
 class DolorListPage extends StatefulWidget {
-  const DolorListPage({super.key});
+  final String? categoria;
+
+  const DolorListPage({super.key, this.categoria});
 
   @override
   State<DolorListPage> createState() => _DolorListPageState();
@@ -162,7 +164,12 @@ class _DolorListPageState extends State<DolorListPage> {
   @override
   Widget build(BuildContext context) {
     final controller = Provider.of<DolorController>(context);
-    final dolores = controller.dolores;
+    // Filtrar dolores por categoría si se especificó
+    final dolores = widget.categoria != null
+        ? controller.dolores
+              .where((dolor) => dolor.categoria == widget.categoria)
+              .toList()
+        : controller.dolores;
     final isLoading = controller.isLoading;
     final error = controller.error;
 
@@ -180,8 +187,8 @@ class _DolorListPageState extends State<DolorListPage> {
           toolbarHeight: 90,
           title: Column(
             mainAxisSize: MainAxisSize.min,
-            children: const [
-              Text(
+            children: [
+              const Text(
                 'AliviaDol',
                 style: TextStyle(
                   fontFamily: 'Montserrat',
@@ -191,10 +198,10 @@ class _DolorListPageState extends State<DolorListPage> {
                   letterSpacing: 1.5,
                 ),
               ),
-              SizedBox(height: 4),
+              const SizedBox(height: 4),
               Text(
-                'Malestares cotidianos',
-                style: TextStyle(
+                widget.categoria ?? 'Malestares cotidianos',
+                style: const TextStyle(
                   fontFamily: 'Montserrat',
                   fontWeight: FontWeight.bold,
                   fontSize: 26,
