@@ -1,8 +1,8 @@
 name: alivia_dolores
-description: "AliviaDol - Tu guía de alivio natural con sugerencias nutricionales para 15 dolencias comunes."
+description: "AliviaDol - Información nutricional general sobre alimentos recomendados para malestares comunes del día a día. Contenido educativo e informativo."
 publish_to: 'none'
 
-version: 1.0.1+6
+version: 1.0.1+7
 
 environment:
   sdk: ^3.9.2

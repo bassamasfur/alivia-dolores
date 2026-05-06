@@ -24,36 +24,67 @@ class _DolorListPageState extends State<DolorListPage> {
   // Obtener emoji específico según el tipo de dolencia
   String _getEmojiForDolencia(String id) {
     switch (id) {
-      case 'acidez-reflujo':
+      // IDs actualizados (mantienen funcionalidad)
+      case 'acidez-estomacal':
         return '🔥';
-      case 'ansiedad-nervios-en-guata':
+      case 'alergia-estacional':
+        return '🌸';
+      case 'ansiedad-leve':
         return '😰';
       case 'calambres-nocturnos':
         return '🦵';
-      case 'cana-resaca':
-        return '🍺';
+      case 'colesterol-alto':
+        return '❤️';
+      case 'diarrea-leve':
+        return '💧';
       case 'dolor-de-articulaciones':
         return '🦴';
       case 'dolor-de-cabeza-tensional':
         return '🤕';
       case 'dolor-de-garganta':
         return '🗣️';
-      case 'dolor-de-muela-leve-esperando-dentista':
+      case 'dolor-dental-leve':
         return '🦷';
-      case 'dolor-menstrual-colicos':
+      case 'dolor-lumbar':
+        return '🔙';
+      case 'dolor-menstrual':
         return '🩸';
-      case 'dolor-muscular-post-gym':
+      case 'dolor-muscular-post-ejercicio':
         return '💪';
       case 'estrenimiento':
         return '🚽';
-      case 'fatiga-falta-energia':
+      case 'fatiga':
         return '😴';
-      case 'hinchazon-abdominal-gases':
+      case 'hemorroides':
+        return '🔴';
+      case 'herpes-labial':
+        return '👄';
+      case 'hinchazon-abdominal':
         return '🫃';
-      case 'nauseas-malestar-estomago':
+      case 'infeccion-urinaria-leve':
+        return '💦';
+      case 'insomnio':
+        return '🌙';
+      case 'mal-aliento':
+        return '😮';
+      case 'mareos-leves':
+        return '😵';
+      case 'migrana':
+        return '⚡';
+      case 'nauseas':
         return '🤢';
-      case 'resfrio-congestion':
+      case 'presion-arterial-alta':
+        return '🩺';
+      case 'quemadura-solar-leve':
+        return '☀️';
+      case 'resaca':
+        return '🍺';
+      case 'resfriado-comun':
         return '🤧';
+      case 'retencion-de-liquidos':
+        return '💧';
+      case 'tos-seca':
+        return '🫁';
       default:
         return '💊';
     }
@@ -62,36 +93,67 @@ class _DolorListPageState extends State<DolorListPage> {
   // Obtener color de fondo según el tipo de dolencia
   Color _getColorForDolencia(String id) {
     switch (id) {
-      case 'acidez-reflujo':
+      // IDs actualizados y nuevas dolencias
+      case 'acidez-estomacal':
         return const Color(0xFFFFE4CC);
-      case 'ansiedad-nervios-en-guata':
+      case 'alergia-estacional':
+        return const Color(0xFFFFF3E0);
+      case 'ansiedad-leve':
         return const Color(0xFFFFF3CC);
       case 'calambres-nocturnos':
         return const Color(0xFFFFDED4);
-      case 'cana-resaca':
-        return const Color(0xFFD4E7FF);
+      case 'colesterol-alto':
+        return const Color(0xFFFFCDD2);
+      case 'diarrea-leve':
+        return const Color(0xFFE1F5FE);
       case 'dolor-de-articulaciones':
         return const Color(0xFFFFE5D4);
       case 'dolor-de-cabeza-tensional':
         return const Color(0xFFD4E4FF);
       case 'dolor-de-garganta':
         return const Color(0xFFD4E7FF);
-      case 'dolor-de-muela-leve-esperando-dentista':
+      case 'dolor-dental-leve':
         return const Color(0xFFE4DAFF);
-      case 'dolor-menstrual-colicos':
+      case 'dolor-lumbar':
+        return const Color(0xFFFFECB3);
+      case 'dolor-menstrual':
         return const Color(0xFFFFD4E7);
-      case 'dolor-muscular-post-gym':
+      case 'dolor-muscular-post-ejercicio':
         return const Color(0xFFFFE4CC);
       case 'estrenimiento':
         return const Color(0xFFE5F3FF);
-      case 'fatiga-falta-energia':
+      case 'fatiga':
         return const Color(0xFFFFF9D4);
-      case 'hinchazon-abdominal-gases':
+      case 'hemorroides':
+        return const Color(0xFFFFE0B2);
+      case 'herpes-labial':
+        return const Color(0xFFF8BBD0);
+      case 'hinchazon-abdominal':
         return const Color(0xFFD4FFE7);
-      case 'nauseas-malestar-estomago':
+      case 'infeccion-urinaria-leve':
+        return const Color(0xFFE0F7FA);
+      case 'insomnio':
+        return const Color(0xFFE8EAF6);
+      case 'mal-aliento':
+        return const Color(0xFFDCEDC8);
+      case 'mareos-leves':
+        return const Color(0xFFF3E5F5);
+      case 'migrana':
+        return const Color(0xFFFFE082);
+      case 'nauseas':
         return const Color(0xFFE5FFE4);
-      case 'resfrio-congestion':
+      case 'presion-arterial-alta':
+        return const Color(0xFFFFCCBC);
+      case 'quemadura-solar-leve':
+        return const Color(0xFFFFE0B2);
+      case 'resaca':
+        return const Color(0xFFD4E7FF);
+      case 'resfriado-comun':
         return const Color(0xFFD4F5FF);
+      case 'retencion-de-liquidos':
+        return const Color(0xFFB3E5FC);
+      case 'tos-seca':
+        return const Color(0xFFE1BEE7);
       default:
         return const Color(0xFFE8E8FF);
     }

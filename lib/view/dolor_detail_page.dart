@@ -437,7 +437,7 @@ class _DolorDetailPageState extends State<DolorDetailPage> {
 
                 const SizedBox(height: 24),
 
-                // Disclaimer médico - Importante
+                // Disclaimer informativo - Importante
                 Container(
                   padding: const EdgeInsets.all(20),
                   decoration: BoxDecoration(
@@ -462,14 +462,14 @@ class _DolorDetailPageState extends State<DolorDetailPage> {
                               borderRadius: BorderRadius.circular(8),
                             ),
                             child: const Icon(
-                              Icons.medical_information_outlined,
+                              Icons.info_outline,
                               color: Color(0xFF6D5BFF),
                               size: 22,
                             ),
                           ),
                           const SizedBox(width: 10),
                           const Text(
-                            'Información importante',
+                            'Solo información general',
                             style: TextStyle(
                               fontFamily: 'Montserrat',
                               fontWeight: FontWeight.bold,
@@ -481,7 +481,7 @@ class _DolorDetailPageState extends State<DolorDetailPage> {
                       ),
                       const SizedBox(height: 12),
                       const Text(
-                        'Este contenido es informativo y complementario. Las sugerencias nutricionales aquí presentadas NO sustituyen el diagnóstico, tratamiento o consejo de un profesional de la salud. Siempre consulta a tu médico antes de realizar cambios en tu dieta o rutina, especialmente si tienes condiciones médicas preexistentes.',
+                        'Esta aplicación proporciona información nutricional general de carácter educativo. NO es una aplicación médica y NO proporciona diagnósticos, tratamientos ni consejos médicos profesionales. Siempre consulta a un profesional de la salud calificado para cualquier condición médica o antes de realizar cambios significativos en tu dieta.',
                         style: TextStyle(
                           fontFamily: 'Montserrat',
                           fontSize: 12,

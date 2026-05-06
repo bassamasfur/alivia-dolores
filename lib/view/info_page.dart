@@ -106,15 +106,15 @@ class InfoPage extends StatelessWidget {
 
                 const SizedBox(height: 20),
 
-                // Disclaimer médico
+                // Disclaimer informativo
                 _buildInfoSection(
-                  icon: Icons.medical_information_outlined,
+                  icon: Icons.info_outline,
                   iconColor: const Color(0xFF6D5BFF),
                   backgroundColor: const Color(0xFFF5F5F5),
                   borderColor: const Color(0xFFBDBDBD),
-                  title: 'Información importante',
+                  title: 'Solo información general',
                   content:
-                      'Este contenido es informativo y complementario. Las sugerencias nutricionales aquí presentadas NO sustituyen el diagnóstico, tratamiento o consejo de un profesional de la salud. Siempre consulta a tu médico antes de realizar cambios en tu dieta o rutina, especialmente si tienes condiciones médicas preexistentes.',
+                      'Esta aplicación proporciona información nutricional general de carácter educativo. NO es una aplicación médica y NO proporciona diagnósticos, tratamientos ni consejos médicos profesionales. La información presentada está basada en fuentes públicas reconocidas. Siempre consulta a un profesional de la salud calificado para cualquier condición médica o antes de realizar cambios significativos en tu dieta.',
                 ),
 
                 const SizedBox(height: 16),
