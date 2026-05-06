@@ -409,7 +409,7 @@ class _DolorDetailPageState extends State<DolorDetailPage> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             const Text(
-                              '⚠️ Cuándo consultar al médico',
+                              '⚠️ Cuándo buscar ayuda profesional',
                               style: TextStyle(
                                 fontFamily: 'Montserrat',
                                 fontWeight: FontWeight.bold,
@@ -481,7 +481,7 @@ class _DolorDetailPageState extends State<DolorDetailPage> {
                       ),
                       const SizedBox(height: 12),
                       const Text(
-                        'Esta aplicación proporciona información nutricional general de carácter educativo. NO es una aplicación médica y NO proporciona diagnósticos, tratamientos ni consejos médicos profesionales. Siempre consulta a un profesional de la salud calificado para cualquier condición médica o antes de realizar cambios significativos en tu dieta.',
+                        'Esta aplicación proporciona información nutricional general de carácter educativo. La información es solo con fines informativos y no reemplaza el consejo de profesionales calificados. Siempre consulta a un profesional de la salud antes de realizar cambios significativos en tu dieta.',
                         style: TextStyle(
                           fontFamily: 'Montserrat',
                           fontSize: 12,

@@ -114,7 +114,7 @@ class InfoPage extends StatelessWidget {
                   borderColor: const Color(0xFFBDBDBD),
                   title: 'Solo información general',
                   content:
-                      'Esta aplicación proporciona información nutricional general de carácter educativo. NO es una aplicación médica y NO proporciona diagnósticos, tratamientos ni consejos médicos profesionales. La información presentada está basada en fuentes públicas reconocidas. Siempre consulta a un profesional de la salud calificado para cualquier condición médica o antes de realizar cambios significativos en tu dieta.',
+                      'Esta aplicación proporciona información nutricional general de carácter educativo. La información es solo con fines informativos y está basada en fuentes públicas reconocidas. No reemplaza el consejo de profesionales calificados. Siempre consulta a un profesional de la salud antes de realizar cambios significativos en tu dieta.',
                 ),
 
                 const SizedBox(height: 16),

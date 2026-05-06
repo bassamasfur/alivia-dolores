@@ -193,7 +193,7 @@ class _DolorListPageState extends State<DolorListPage> {
               ),
               SizedBox(height: 4),
               Text(
-                'Dolencias comunes',
+                'Malestares cotidianos',
                 style: TextStyle(
                   fontFamily: 'Montserrat',
                   fontWeight: FontWeight.bold,
@@ -266,7 +266,7 @@ class _DolorListPageState extends State<DolorListPage> {
             : dolores.isEmpty
             ? const Center(
                 child: Text(
-                  'No hay dolencias disponibles',
+                  'No hay información disponible',
                   style: TextStyle(
                     fontFamily: 'Montserrat',
                     fontSize: 16,
