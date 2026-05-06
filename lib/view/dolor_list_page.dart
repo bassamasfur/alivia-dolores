@@ -286,6 +286,251 @@ class _DolorListPageState extends State<DolorListPage> {
                   );
                 },
               ),
+        floatingActionButton: FloatingActionButton.extended(
+          onPressed: () => _mostrarDisclaimerDialog(context),
+          icon: const Icon(Icons.info_outline, size: 22),
+          label: const Text(
+            'Información',
+            style: TextStyle(
+              fontFamily: 'Montserrat',
+              fontWeight: FontWeight.bold,
+              fontSize: 13,
+            ),
+          ),
+          backgroundColor: Colors.white,
+          foregroundColor: const Color(0xFF6D5BFF),
+          elevation: 6,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
+          ),
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      ),
+    );
+  }
+
+  void _mostrarDisclaimerDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (context) => Dialog(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
+        child: Container(
+          constraints: const BoxConstraints(maxWidth: 500, maxHeight: 700),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              // Header con degradado
+              Container(
+                padding: const EdgeInsets.all(20),
+                decoration: const BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [Color(0xFF6D5BFF), Color(0xFF46C2CB)],
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                  ),
+                  borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
+                ),
+                child: Row(
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                        color: Colors.white.withOpacity(0.25),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: const Icon(
+                        Icons.medical_information_rounded,
+                        color: Colors.white,
+                        size: 28,
+                      ),
+                    ),
+                    const SizedBox(width: 14),
+                    const Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'AliviaDol',
+                            style: TextStyle(
+                              fontFamily: 'Montserrat',
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
+                              color: Colors.white,
+                            ),
+                          ),
+                          SizedBox(height: 4),
+                          Text(
+                            'Información importante',
+                            style: TextStyle(
+                              fontFamily: 'Montserrat',
+                              fontSize: 13,
+                              color: Colors.white70,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    IconButton(
+                      onPressed: () => Navigator.pop(context),
+                      icon: const Icon(
+                        Icons.close_rounded,
+                        color: Colors.white,
+                        size: 28,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              // Contenido scrolleable
+              Flexible(
+                child: SingleChildScrollView(
+                  padding: const EdgeInsets.all(20),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      // Disclaimer médico
+                      _buildDialogSection(
+                        icon: Icons.medical_information_outlined,
+                        iconColor: const Color(0xFF6D5BFF),
+                        backgroundColor: const Color(0xFFF5F5F5),
+                        borderColor: const Color(0xFFBDBDBD),
+                        title: 'Información importante',
+                        content:
+                            'Este contenido es informativo y complementario. Las sugerencias nutricionales aquí presentadas NO sustituyen el diagnóstico, tratamiento o consejo de un profesional de la salud. Siempre consulta a tu médico antes de realizar cambios en tu dieta o rutina, especialmente si tienes condiciones médicas preexistentes.',
+                      ),
+                      const SizedBox(height: 16),
+                      // Fuentes de información
+                      _buildDialogSection(
+                        icon: Icons.menu_book_rounded,
+                        iconColor: const Color(0xFF1976D2),
+                        backgroundColor: const Color(0xFFE3F2FD),
+                        borderColor: const Color(0xFF42A5F5),
+                        title: 'Fuentes de información',
+                        content:
+                            'Las sugerencias nutricionales están basadas en información de instituciones médicas reconocidas internacionalmente:\n\n'
+                            '🏥 Mayo Clinic (Estados Unidos)\n'
+                            'Organización médica sin fines de lucro. Una de las instituciones más prestigiosas del mundo.\n'
+                            'Web: mayoclinic.org\n\n'
+                            '🎓 Harvard Health Publishing\n'
+                            'Publicaciones de la Escuela de Medicina de Harvard. Divulgación científica basada en evidencia.\n'
+                            'Web: health.harvard.edu\n\n'
+                            '🏛️ NHS (National Health Service, Reino Unido)\n'
+                            'Servicio Nacional de Salud británico. Sistema público con guías clínicas oficiales.\n'
+                            'Web: nhs.uk',
+                      ),
+                      const SizedBox(height: 16),
+                      // Consejos de bienestar
+                      _buildDialogSection(
+                        icon: Icons.favorite_rounded,
+                        iconColor: const Color(0xFF66BB6A),
+                        backgroundColor: const Color(0xFFE8F5E9),
+                        borderColor: const Color(0xFF81C784),
+                        title: 'Para tu bienestar general',
+                        content:
+                            '💧 Mantén una hidratación adecuada (2-3 litros de agua al día)\n\n'
+                            '😴 Duerme 7-8 horas diarias para una recuperación óptima\n\n'
+                            '🏃 Realiza actividad física moderada regularmente\n\n'
+                            '🧘 Gestiona el estrés con técnicas de relajación',
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              // Footer
+              Container(
+                padding: const EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  color: Colors.grey[100],
+                  borderRadius: const BorderRadius.vertical(
+                    bottom: Radius.circular(24),
+                  ),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Icon(
+                      Icons.verified_outlined,
+                      color: Color(0xFF6D5BFF),
+                      size: 18,
+                    ),
+                    const SizedBox(width: 8),
+                    Flexible(
+                      child: const Text(
+                        'Información verificada y respaldada por la comunidad médica',
+                        style: TextStyle(
+                          fontFamily: 'Montserrat',
+                          fontSize: 11,
+                          color: Color(0xFF424242),
+                          fontWeight: FontWeight.w600,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildDialogSection({
+    required IconData icon,
+    required Color iconColor,
+    required Color backgroundColor,
+    required Color borderColor,
+    required String title,
+    required String content,
+  }) {
+    return Container(
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: backgroundColor,
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: borderColor.withOpacity(0.4), width: 1.5),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Container(
+                padding: const EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  color: iconColor.withOpacity(0.1),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Icon(icon, color: iconColor, size: 22),
+              ),
+              const SizedBox(width: 10),
+              Expanded(
+                child: Text(
+                  title,
+                  style: TextStyle(
+                    fontFamily: 'Montserrat',
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15,
+                    color: iconColor,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 12),
+          Text(
+            content,
+            style: const TextStyle(
+              fontFamily: 'Montserrat',
+              fontSize: 12,
+              color: Color(0xFF424242),
+              height: 1.5,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+        ],
       ),
     );
   }
