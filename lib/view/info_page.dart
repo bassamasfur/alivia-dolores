@@ -90,6 +90,7 @@ class InfoPage extends StatelessWidget {
                             SizedBox(height: 4),
                             Text(
                               'Información importante sobre el uso de la aplicación',
+                              textAlign: TextAlign.justify,
                               style: TextStyle(
                                 fontFamily: 'Montserrat',
                                 fontSize: 13,
@@ -132,6 +133,7 @@ class InfoPage extends StatelessWidget {
                     children: [
                       const Text(
                         'Las sugerencias nutricionales están basadas en información de instituciones médicas reconocidas internacionalmente:',
+                        textAlign: TextAlign.justify,
                         style: TextStyle(
                           fontFamily: 'Montserrat',
                           fontSize: 13,
@@ -185,6 +187,7 @@ class InfoPage extends StatelessWidget {
                             Expanded(
                               child: Text(
                                 'Información verificada y respaldada por la comunidad médica internacional.',
+                                textAlign: TextAlign.justify,
                                 style: TextStyle(
                                   fontFamily: 'Montserrat',
                                   fontSize: 11,
@@ -331,6 +334,7 @@ class InfoPage extends StatelessWidget {
           else if (content.isNotEmpty)
             Text(
               content,
+              textAlign: TextAlign.justify,
               style: const TextStyle(
                 fontFamily: 'Montserrat',
                 fontSize: 13,
@@ -400,6 +404,7 @@ class InfoPage extends StatelessWidget {
           const SizedBox(height: 8),
           Text(
             description,
+            textAlign: TextAlign.justify,
             style: const TextStyle(
               fontFamily: 'Montserrat',
               fontSize: 12,
