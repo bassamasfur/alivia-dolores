@@ -17,9 +17,12 @@ class _DolorListPageState extends State<DolorListPage> {
   @override
   void initState() {
     super.initState();
-    // Cargar dolencias al iniciar la página
+    // Solo cargar si no hay datos (por ejemplo, si hubo error en splash)
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      Provider.of<DolorController>(context, listen: false).cargarDolencias();
+      final controller = Provider.of<DolorController>(context, listen: false);
+      if (!controller.isDataLoaded && !controller.isLoading) {
+        controller.cargarDolencias();
+      }
     });
   }
 

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../controller/dolor_controller.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
@@ -66,12 +68,21 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
     _rotateController.repeat(reverse: true);
     _pulseController.repeat(reverse: true);
 
-    // Navegar después de 2.5 segundos
-    Future.delayed(const Duration(milliseconds: 2500), () {
+    // Cargar dolencias al inicio (una sola vez)
+    _cargarDatos();
+  }
+
+  Future<void> _cargarDatos() async {
+    final controller = Provider.of<DolorController>(context, listen: false);
+    await controller.cargarDolencias();
+
+    // Navegar después de cargar (mínimo 2.5 segundos para ver splash)
+    if (mounted) {
+      await Future.delayed(const Duration(milliseconds: 2500));
       if (mounted) {
         Navigator.of(context).pushReplacementNamed('/home');
       }
-    });
+    }
   }
 
   @override
