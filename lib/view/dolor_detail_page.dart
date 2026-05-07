@@ -208,6 +208,7 @@ class _DolorDetailPageState extends State<DolorDetailPage> {
                             const SizedBox(height: 8),
                             Text(
                               widget.dolor.descripcion,
+                              textAlign: TextAlign.justify,
                               style: const TextStyle(
                                 fontFamily: 'Montserrat',
                                 fontSize: 14,
@@ -482,6 +483,7 @@ class _DolorDetailPageState extends State<DolorDetailPage> {
                       const SizedBox(height: 12),
                       const Text(
                         'Esta aplicación proporciona información nutricional general de carácter educativo. La información es solo con fines informativos y no reemplaza el consejo de profesionales calificados. Siempre consulta a un profesional de la salud antes de realizar cambios significativos en tu dieta.',
+                        textAlign: TextAlign.justify,
                         style: TextStyle(
                           fontFamily: 'Montserrat',
                           fontSize: 12,
