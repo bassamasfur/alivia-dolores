@@ -351,7 +351,7 @@ class _DolorListPageState extends State<DolorListPage> {
                                         color: Color(0xFF2D2D2D),
                                         height: 1.2,
                                       ),
-                                      textAlign: TextAlign.justify,
+                                      textAlign: TextAlign.center,
                                       maxLines: 3,
                                       overflow: TextOverflow.ellipsis,
                                     ),
