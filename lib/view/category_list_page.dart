@@ -101,9 +101,9 @@ class CategoryListPage extends StatelessWidget {
                 physics: const NeverScrollableScrollPhysics(),
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
-                  childAspectRatio: 0.85,
-                  crossAxisSpacing: 16,
-                  mainAxisSpacing: 16,
+                  childAspectRatio: 1.0,
+                  crossAxisSpacing: 12,
+                  mainAxisSpacing: 12,
                 ),
                 itemCount: categorias.length,
                 itemBuilder: (context, index) {
@@ -201,27 +201,30 @@ class CategoryListPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // Emoji grande
-            Text(categoria.emoji, style: const TextStyle(fontSize: 48)),
-            const SizedBox(height: 12),
+            // Emoji
+            Text(categoria.emoji, style: const TextStyle(fontSize: 36)),
+            const SizedBox(height: 8),
             // Nombre de la categoría
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12),
+              padding: const EdgeInsets.symmetric(horizontal: 10),
               child: Text(
                 categoria.nombre,
                 textAlign: TextAlign.center,
                 style: const TextStyle(
                   fontFamily: 'Montserrat',
                   fontWeight: FontWeight.bold,
-                  fontSize: 16,
+                  fontSize: 14,
                   color: Color(0xFF2D2D2D),
+                  height: 1.1,
                 ),
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
               ),
             ),
-            const SizedBox(height: 6),
+            const SizedBox(height: 4),
             // Descripción
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12),
+              padding: const EdgeInsets.symmetric(horizontal: 10),
               child: Text(
                 categoria.descripcion,
                 textAlign: TextAlign.center,
@@ -229,9 +232,10 @@ class CategoryListPage extends StatelessWidget {
                 overflow: TextOverflow.ellipsis,
                 style: TextStyle(
                   fontFamily: 'Montserrat',
-                  fontSize: 11,
+                  fontSize: 10,
                   color: Colors.black.withValues(alpha: 0.6),
                   fontWeight: FontWeight.w500,
+                  height: 1.2,
                 ),
               ),
             ),
