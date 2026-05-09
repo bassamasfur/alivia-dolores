@@ -82,7 +82,7 @@ class CategoryListPage extends StatelessWidget {
                     SizedBox(width: 12),
                     Expanded(
                       child: Text(
-                        'Selecciona una categoría para ver información nutricional',
+                        'Selecciona una categoría para ver información',
                         style: TextStyle(
                           fontFamily: 'Montserrat',
                           fontSize: 14,
@@ -101,7 +101,7 @@ class CategoryListPage extends StatelessWidget {
                 physics: const NeverScrollableScrollPhysics(),
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
-                  childAspectRatio: 1.0,
+                  childAspectRatio: 1.2,
                   crossAxisSpacing: 12,
                   mainAxisSpacing: 12,
                 ),
