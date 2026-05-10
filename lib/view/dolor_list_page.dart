@@ -37,23 +37,23 @@ class _DolorListPageState extends State<DolorListPage> {
       case 'ansiedad-leve':
         return '😰';
       case 'calambres-nocturnos':
-        return '🦵';
+        return '🌛';
       case 'colesterol-alto':
         return '❤️';
       case 'diarrea-leve':
         return '💧';
       case 'dolor-de-articulaciones':
-        return '🦴';
+        return '💢';
       case 'dolor-de-cabeza-tensional':
         return '🤕';
       case 'dolor-de-garganta':
         return '🗣️';
       case 'dolor-dental-leve':
-        return '🦷';
+        return '😬';
       case 'dolor-lumbar':
         return '🔙';
       case 'dolor-menstrual':
-        return '🩸';
+        return '🔴';
       case 'dolor-muscular-post-ejercicio':
         return '💪';
       case 'estrenimiento':
@@ -65,7 +65,7 @@ class _DolorListPageState extends State<DolorListPage> {
       case 'herpes-labial':
         return '👄';
       case 'hinchazon-abdominal':
-        return '🫃';
+        return '🎈';
       case 'infeccion-urinaria-leve':
         return '💦';
       case 'insomnio':
@@ -79,7 +79,7 @@ class _DolorListPageState extends State<DolorListPage> {
       case 'nauseas':
         return '🤢';
       case 'presion-arterial-alta':
-        return '🩺';
+        return '💗';
       case 'quemadura-solar-leve':
         return '☀️';
       case 'resaca':
@@ -89,7 +89,7 @@ class _DolorListPageState extends State<DolorListPage> {
       case 'retencion-de-liquidos':
         return '💧';
       case 'tos-seca':
-        return '🫁';
+        return '😷';
       default:
         return '💊';
     }

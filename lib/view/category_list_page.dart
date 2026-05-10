@@ -82,13 +82,16 @@ class CategoryListPage extends StatelessWidget {
                     SizedBox(width: 12),
                     Expanded(
                       child: Text(
-                        'Selecciona una categoría para ver información',
+                        'Selecciona una categoría',
                         style: TextStyle(
                           fontFamily: 'Montserrat',
-                          fontSize: 14,
+                          fontSize: 13,
                           color: Color(0xFF424242),
                           fontWeight: FontWeight.w500,
                         ),
+                        textAlign: TextAlign.center,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
                       ),
                     ),
                   ],
@@ -202,7 +205,7 @@ class CategoryListPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             // Emoji
-            Text(categoria.emoji, style: const TextStyle(fontSize: 36)),
+            Text(categoria.emoji, style: const TextStyle(fontSize: 42)),
             const SizedBox(height: 8),
             // Nombre de la categoría
             Padding(
@@ -213,7 +216,7 @@ class CategoryListPage extends StatelessWidget {
                 style: const TextStyle(
                   fontFamily: 'Montserrat',
                   fontWeight: FontWeight.bold,
-                  fontSize: 14,
+                  fontSize: 16,
                   color: Color(0xFF2D2D2D),
                   height: 1.1,
                 ),
@@ -232,7 +235,7 @@ class CategoryListPage extends StatelessWidget {
                 overflow: TextOverflow.ellipsis,
                 style: TextStyle(
                   fontFamily: 'Montserrat',
-                  fontSize: 10,
+                  fontSize: 11,
                   color: Colors.black.withValues(alpha: 0.6),
                   fontWeight: FontWeight.w500,
                   height: 1.2,
