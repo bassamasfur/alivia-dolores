@@ -14,6 +14,16 @@ class DolorListPage extends StatefulWidget {
 }
 
 class _DolorListPageState extends State<DolorListPage> {
+  // Dolencias a excluir de la visualización
+  static const List<String> _dolenciasExcluidas = [
+    'fatiga-visual',
+    'eczema',
+    'dolor-por-ciatica',
+    'dolor-toracico',
+    'sindrome-premenstrual',
+    'sintomas-de-menopausia',
+  ];
+
   @override
   void initState() {
     super.initState();
@@ -32,34 +42,62 @@ class _DolorListPageState extends State<DolorListPage> {
       // IDs actualizados (mantienen funcionalidad)
       case 'acidez-estomacal':
         return '🔥';
+      case 'acne':
+        return '💥';
       case 'alergia-estacional':
         return '🌸';
+      case 'anemia':
+        return '🩸';
       case 'ansiedad-leve':
         return '😰';
+      case 'bronquitis-leve':
+        return '🤧';
+      case 'caida-de-cabello':
+        return '💇';
       case 'calambres-nocturnos':
         return '🌛';
       case 'colesterol-alto':
         return '❤️';
+      case 'congestion-nasal':
+        return '🤧';
       case 'diarrea-leve':
         return '💧';
+      case 'dolor-cervical':
+        return '🦴';
       case 'dolor-de-articulaciones':
         return '💢';
       case 'dolor-de-cabeza-tensional':
         return '🤕';
       case 'dolor-de-garganta':
         return '🗣️';
+      case 'dolor-de-oido-leve':
+        return '👂';
       case 'dolor-dental-leve':
         return '😬';
+      case 'dolor-dorsal':
+        return '🔙';
       case 'dolor-lumbar':
         return '🔙';
       case 'dolor-menstrual':
         return '🔴';
+      case 'dolor-muscular-de-espalda':
+        return '💪';
       case 'dolor-muscular-post-ejercicio':
         return '💪';
+      case 'dolor-por-ciatica':
+        return '⚡';
+      case 'dolor-toracico':
+        return '💢';
+      case 'eczema':
+        return '🩹';
       case 'estrenimiento':
         return '🚽';
       case 'fatiga':
         return '😴';
+      case 'fatiga-visual':
+        return '👁️';
+      case 'gastritis':
+        return '🔥';
       case 'hemorroides':
         return '🔴';
       case 'herpes-labial':
@@ -72,24 +110,48 @@ class _DolorListPageState extends State<DolorListPage> {
         return '🌙';
       case 'mal-aliento':
         return '😮';
+      case 'manos-y-pies-frios':
+        return '🧊';
       case 'mareos-leves':
         return '😵';
       case 'migrana':
         return '⚡';
       case 'nauseas':
         return '🤢';
+      case 'ojo-seco':
+        return '👁️';
+      case 'picaduras-de-insecto':
+        return '🦟';
+      case 'piel-seca':
+        return '🧴';
       case 'presion-arterial-alta':
         return '💗';
       case 'quemadura-solar-leve':
         return '☀️';
+      case 'reflujo-gastroesofagico':
+        return '🔥';
       case 'resaca':
         return '🍺';
       case 'resfriado-comun':
         return '🤧';
       case 'retencion-de-liquidos':
         return '💧';
+      case 'ronquera':
+        return '🗣️';
+      case 'sindrome-de-intestino-irritable':
+        return '🎈';
+      case 'sindrome-premenstrual':
+        return '🔴';
+      case 'sintomas-de-menopausia':
+        return '🌸';
+      case 'sinusitis':
+        return '🤧';
+      case 'sudoracion-excesiva':
+        return '💦';
       case 'tos-seca':
         return '😷';
+      case 'unas-debiles':
+        return '💅';
       default:
         return '💊';
     }
@@ -101,34 +163,62 @@ class _DolorListPageState extends State<DolorListPage> {
       // IDs actualizados y nuevas dolencias
       case 'acidez-estomacal':
         return const Color(0xFFFFE4CC);
+      case 'acne':
+        return const Color(0xFFFFE0E0);
       case 'alergia-estacional':
         return const Color(0xFFFFF3E0);
+      case 'anemia':
+        return const Color(0xFFFFCDD2);
       case 'ansiedad-leve':
         return const Color(0xFFFFF3CC);
+      case 'bronquitis-leve':
+        return const Color(0xFFD4F5FF);
+      case 'caida-de-cabello':
+        return const Color(0xFFFFE5E5);
       case 'calambres-nocturnos':
         return const Color(0xFFFFDED4);
       case 'colesterol-alto':
         return const Color(0xFFFFCDD2);
+      case 'congestion-nasal':
+        return const Color(0xFFE1F5FE);
       case 'diarrea-leve':
         return const Color(0xFFE1F5FE);
+      case 'dolor-cervical':
+        return const Color(0xFFFFECB3);
       case 'dolor-de-articulaciones':
         return const Color(0xFFFFE5D4);
       case 'dolor-de-cabeza-tensional':
         return const Color(0xFFD4E4FF);
       case 'dolor-de-garganta':
         return const Color(0xFFD4E7FF);
+      case 'dolor-de-oido-leve':
+        return const Color(0xFFFFE0B2);
       case 'dolor-dental-leve':
         return const Color(0xFFE4DAFF);
+      case 'dolor-dorsal':
+        return const Color(0xFFFFECB3);
       case 'dolor-lumbar':
         return const Color(0xFFFFECB3);
       case 'dolor-menstrual':
         return const Color(0xFFFFD4E7);
+      case 'dolor-muscular-de-espalda':
+        return const Color(0xFFFFE4CC);
       case 'dolor-muscular-post-ejercicio':
         return const Color(0xFFFFE4CC);
+      case 'dolor-por-ciatica':
+        return const Color(0xFFFFE082);
+      case 'dolor-toracico':
+        return const Color(0xFFFFE5D4);
+      case 'eczema':
+        return const Color(0xFFF8BBD0);
       case 'estrenimiento':
         return const Color(0xFFE5F3FF);
       case 'fatiga':
         return const Color(0xFFFFF9D4);
+      case 'fatiga-visual':
+        return const Color(0xFFE8EAF6);
+      case 'gastritis':
+        return const Color(0xFFFFE4CC);
       case 'hemorroides':
         return const Color(0xFFFFE0B2);
       case 'herpes-labial':
@@ -141,24 +231,48 @@ class _DolorListPageState extends State<DolorListPage> {
         return const Color(0xFFE8EAF6);
       case 'mal-aliento':
         return const Color(0xFFDCEDC8);
+      case 'manos-y-pies-frios':
+        return const Color(0xFFB3E5FC);
       case 'mareos-leves':
         return const Color(0xFFF3E5F5);
       case 'migrana':
         return const Color(0xFFFFE082);
       case 'nauseas':
         return const Color(0xFFE5FFE4);
+      case 'ojo-seco':
+        return const Color(0xFFE1F5FE);
+      case 'picaduras-de-insecto':
+        return const Color(0xFFFFE0B2);
+      case 'piel-seca':
+        return const Color(0xFFFFE5E5);
       case 'presion-arterial-alta':
         return const Color(0xFFFFCCBC);
       case 'quemadura-solar-leve':
         return const Color(0xFFFFE0B2);
+      case 'reflujo-gastroesofagico':
+        return const Color(0xFFFFE4CC);
       case 'resaca':
         return const Color(0xFFD4E7FF);
       case 'resfriado-comun':
         return const Color(0xFFD4F5FF);
       case 'retencion-de-liquidos':
         return const Color(0xFFB3E5FC);
+      case 'ronquera':
+        return const Color(0xFFD4E7FF);
+      case 'sindrome-de-intestino-irritable':
+        return const Color(0xFFD4FFE7);
+      case 'sindrome-premenstrual':
+        return const Color(0xFFFFD4E7);
+      case 'sintomas-de-menopausia':
+        return const Color(0xFFFFF3E0);
+      case 'sinusitis':
+        return const Color(0xFFE1F5FE);
+      case 'sudoracion-excesiva':
+        return const Color(0xFFE0F7FA);
       case 'tos-seca':
         return const Color(0xFFE1BEE7);
+      case 'unas-debiles':
+        return const Color(0xFFF8BBD0);
       default:
         return const Color(0xFFE8E8FF);
     }
@@ -167,12 +281,18 @@ class _DolorListPageState extends State<DolorListPage> {
   @override
   Widget build(BuildContext context) {
     final controller = Provider.of<DolorController>(context);
-    // Filtrar dolores por categoría si se especificó
+    // Filtrar dolores por categoría si se especificó y excluir dolencias no deseadas
     final dolores = widget.categoria != null
         ? controller.dolores
-              .where((dolor) => dolor.categoria == widget.categoria)
+              .where(
+                (dolor) =>
+                    dolor.categoria == widget.categoria &&
+                    !_dolenciasExcluidas.contains(dolor.id),
+              )
               .toList()
-        : controller.dolores;
+        : controller.dolores
+              .where((dolor) => !_dolenciasExcluidas.contains(dolor.id))
+              .toList();
     final isLoading = controller.isLoading;
     final error = controller.error;
 
