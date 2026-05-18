@@ -34,11 +34,11 @@ final List<Categoria> categorias = [
     descripcion: 'Molestias respiratorias',
     icono: Icons.air,
     color: const Color(0xFFD4F5FF),
-    emoji: '🫁',
+    emoji: '😷',
   ),
   Categoria(
     id: 'Dolor y Musculatura',
-    nombre: 'Dolor y Musculatura',
+    nombre: 'Músculo y Hueso',
     descripcion: 'Dolores musculares y articulares',
     icono: Icons.fitness_center,
     color: const Color(0xFFFFDED4),
@@ -46,7 +46,7 @@ final List<Categoria> categorias = [
   ),
   Categoria(
     id: 'Neurológico y Bienestar Mental',
-    nombre: 'Neurológico y Mental',
+    nombre: 'Mente y Cerebro',
     descripcion: 'Bienestar mental y neurológico',
     icono: Icons.psychology,
     color: const Color(0xFFE8EAF6),
@@ -66,6 +66,6 @@ final List<Categoria> categorias = [
     descripcion: 'Cuidado de la piel y más',
     icono: Icons.health_and_safety,
     color: const Color(0xFFF8BBD0),
-    emoji: '🩹',
+    emoji: '⚕️',
   ),
 ];

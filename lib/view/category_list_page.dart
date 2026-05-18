@@ -54,11 +54,13 @@ class CategoryListPage extends StatelessWidget {
           ),
         ),
         body: SingleChildScrollView(
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.fromLTRB(16, 16, 16, 12),
           child: Column(
+            mainAxisSize: MainAxisSize.min,
             children: [
               // Descripción
               Container(
+                width: double.infinity,
                 padding: const EdgeInsets.all(16),
                 margin: const EdgeInsets.only(bottom: 20),
                 decoration: BoxDecoration(
@@ -72,29 +74,16 @@ class CategoryListPage extends StatelessWidget {
                     ),
                   ],
                 ),
-                child: const Row(
-                  children: [
-                    Icon(
-                      Icons.info_outline,
-                      color: Color(0xFF6D5BFF),
-                      size: 24,
-                    ),
-                    SizedBox(width: 12),
-                    Expanded(
-                      child: Text(
-                        'Selecciona una categoría',
-                        style: TextStyle(
-                          fontFamily: 'Montserrat',
-                          fontSize: 13,
-                          color: Color(0xFF424242),
-                          fontWeight: FontWeight.w500,
-                        ),
-                        textAlign: TextAlign.center,
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                    ),
-                  ],
+                child: const Text(
+                  'Selecciona una categoría',
+                  style: TextStyle(
+                    fontFamily: 'Montserrat',
+                    fontSize: 17,
+                    color: Color(0xFF2D2D2D),
+                    fontWeight: FontWeight.bold,
+                    letterSpacing: 0.5,
+                  ),
+                  textAlign: TextAlign.center,
                 ),
               ),
 
@@ -104,7 +93,7 @@ class CategoryListPage extends StatelessWidget {
                 physics: const NeverScrollableScrollPhysics(),
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
-                  childAspectRatio: 1.2,
+                  childAspectRatio: 1.0,
                   crossAxisSpacing: 12,
                   mainAxisSpacing: 12,
                 ),
@@ -115,7 +104,7 @@ class CategoryListPage extends StatelessWidget {
                 },
               ),
 
-              const SizedBox(height: 20),
+              const SizedBox(height: 8),
 
               // Botón de información
               GestureDetector(
@@ -170,8 +159,6 @@ class CategoryListPage extends StatelessWidget {
                   ),
                 ),
               ),
-
-              const SizedBox(height: 20),
             ],
           ),
         ),
@@ -201,47 +188,48 @@ class CategoryListPage extends StatelessWidget {
             ),
           ],
         ),
+        padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 12),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
+            const SizedBox(height: 4),
             // Emoji
             Text(categoria.emoji, style: const TextStyle(fontSize: 42)),
-            const SizedBox(height: 8),
-            // Nombre de la categoría
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: Text(
-                categoria.nombre,
-                textAlign: TextAlign.center,
-                style: const TextStyle(
-                  fontFamily: 'Montserrat',
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16,
-                  color: Color(0xFF2D2D2D),
-                  height: 1.1,
+            // Nombre y descripción
+            Column(
+              children: [
+                // Nombre de la categoría
+                Text(
+                  categoria.nombre,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    fontFamily: 'Montserrat',
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                    color: Color(0xFF2D2D2D),
+                    height: 1.1,
+                  ),
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
                 ),
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-              ),
+                const SizedBox(height: 4),
+                // Descripción
+                Text(
+                  categoria.descripcion,
+                  textAlign: TextAlign.center,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    fontFamily: 'Montserrat',
+                    fontSize: 11,
+                    color: Colors.black.withValues(alpha: 0.6),
+                    fontWeight: FontWeight.w500,
+                    height: 1.2,
+                  ),
+                ),
+              ],
             ),
             const SizedBox(height: 4),
-            // Descripción
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: Text(
-                categoria.descripcion,
-                textAlign: TextAlign.center,
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(
-                  fontFamily: 'Montserrat',
-                  fontSize: 11,
-                  color: Colors.black.withValues(alpha: 0.6),
-                  fontWeight: FontWeight.w500,
-                  height: 1.2,
-                ),
-              ),
-            ),
           ],
         ),
       ),
