@@ -93,7 +93,7 @@ class CategoryListPage extends StatelessWidget {
                 physics: const NeverScrollableScrollPhysics(),
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
-                  childAspectRatio: 1.0,
+                  childAspectRatio: 1.25,
                   crossAxisSpacing: 12,
                   mainAxisSpacing: 12,
                 ),
@@ -188,13 +188,13 @@ class CategoryListPage extends StatelessWidget {
             ),
           ],
         ),
-        padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 12),
+        padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 12),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const SizedBox(height: 4),
+            const SizedBox(height: 2),
             // Emoji
-            Text(categoria.emoji, style: const TextStyle(fontSize: 42)),
+            Text(categoria.emoji, style: const TextStyle(fontSize: 38)),
             // Nombre y descripción
             Column(
               children: [
@@ -212,7 +212,7 @@ class CategoryListPage extends StatelessWidget {
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                 ),
-                const SizedBox(height: 4),
+                const SizedBox(height: 3),
                 // Descripción
                 Text(
                   categoria.descripcion,
@@ -229,7 +229,7 @@ class CategoryListPage extends StatelessWidget {
                 ),
               ],
             ),
-            const SizedBox(height: 4),
+            const SizedBox(height: 2),
           ],
         ),
       ),
