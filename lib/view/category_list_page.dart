@@ -1,10 +1,56 @@
 import 'package:flutter/material.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import '../model/categoria_model.dart';
+import '../services/ad_service.dart';
 import '../view/dolor_list_page.dart';
 import '../view/info_page.dart';
 
-class CategoryListPage extends StatelessWidget {
+class CategoryListPage extends StatefulWidget {
   const CategoryListPage({super.key});
+
+  @override
+  State<CategoryListPage> createState() => _CategoryListPageState();
+}
+
+class _CategoryListPageState extends State<CategoryListPage> {
+  BannerAd? _bannerAd;
+  bool _isBannerLoaded = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadBannerAd();
+  }
+
+  void _loadBannerAd() {
+    _bannerAd = AdService.createBannerAd(
+      onAdLoaded: (ad) {
+        if (!mounted) {
+          ad.dispose();
+          return;
+        }
+
+        setState(() {
+          _isBannerLoaded = true;
+        });
+      },
+      onAdFailedToLoad: (_, __) {
+        if (!mounted) {
+          return;
+        }
+
+        setState(() {
+          _isBannerLoaded = false;
+        });
+      },
+    );
+  }
+
+  @override
+  void dispose() {
+    AdService.disposeBanner(_bannerAd);
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -105,6 +151,15 @@ class CategoryListPage extends StatelessWidget {
               ),
 
               const SizedBox(height: 8),
+
+              if (_isBannerLoaded && _bannerAd != null)
+                SizedBox(
+                  width: _bannerAd!.size.width.toDouble(),
+                  height: _bannerAd!.size.height.toDouble(),
+                  child: AdWidget(ad: _bannerAd!),
+                ),
+
+              const SizedBox(height: 16),
 
               // Botón de información
               GestureDetector(

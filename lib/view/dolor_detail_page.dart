@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import '../model/dolor_model.dart';
+import '../services/ad_service.dart';
 
 class DolorDetailPage extends StatefulWidget {
   final Dolor dolor;
@@ -11,6 +13,44 @@ class DolorDetailPage extends StatefulWidget {
 
 class _DolorDetailPageState extends State<DolorDetailPage> {
   bool _isFuentesExpanded = false;
+  BannerAd? _bannerAd;
+  bool _isBannerLoaded = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadBannerAd();
+  }
+
+  void _loadBannerAd() {
+    _bannerAd = AdService.createBannerAd(
+      onAdLoaded: (ad) {
+        if (!mounted) {
+          ad.dispose();
+          return;
+        }
+
+        setState(() {
+          _isBannerLoaded = true;
+        });
+      },
+      onAdFailedToLoad: (_, __) {
+        if (!mounted) {
+          return;
+        }
+
+        setState(() {
+          _isBannerLoaded = false;
+        });
+      },
+    );
+  }
+
+  @override
+  void dispose() {
+    AdService.disposeBanner(_bannerAd);
+    super.dispose();
+  }
 
   // Card base unificado para todas las secciones
   Widget _buildCard({required Widget child, Color? backgroundColor}) {
@@ -495,6 +535,17 @@ class _DolorDetailPageState extends State<DolorDetailPage> {
                     ],
                   ),
                 ),
+
+                const SizedBox(height: 16),
+
+                if (_isBannerLoaded && _bannerAd != null)
+                  Center(
+                    child: SizedBox(
+                      width: _bannerAd!.size.width.toDouble(),
+                      height: _bannerAd!.size.height.toDouble(),
+                      child: AdWidget(ad: _bannerAd!),
+                    ),
+                  ),
 
                 const SizedBox(height: 16),
 

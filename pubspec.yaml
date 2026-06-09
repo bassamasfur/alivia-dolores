@@ -2,7 +2,7 @@ name: alivia_dolores
 description: "AliviaDol - Guía de nutrición con información sobre alimentos recomendados para diferentes situaciones del día a día. Solo con fines educativos."
 publish_to: 'none'
 
-version: 1.0.8+15
+version: 1.0.8+18
 
 environment:
   sdk: ^3.9.2
@@ -22,6 +22,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   provider: ^6.1.5+1
   http: ^1.2.0
+  google_mobile_ads: ^5.1.0
 
 dev_dependencies:
   flutter_test:

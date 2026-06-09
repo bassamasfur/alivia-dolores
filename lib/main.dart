@@ -1,10 +1,14 @@
 import "package:flutter/material.dart";
 import "package:provider/provider.dart";
 import 'controller/dolor_controller.dart';
+import 'services/ad_service.dart';
 import 'view/category_list_page.dart';
 import 'view/splash_page.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await AdService.initialize();
+
   runApp(
     MultiProvider(
       providers: [ChangeNotifierProvider(create: (_) => DolorController())],
